@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<!--据说可以解决浏览器自动启动急速模式-->
+		<meta name="renderer" content="webkit">
+		<META HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+		<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
+		<META HTTP-EQUIV="expires" CONTENT="0">
+		<title>零零汽-专业汽配查询平台</title>
+		<script src="/ppy/js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/ppy/js/utils.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			var PeipeiYun = true
+//			PeipeiYun = false //打开就是测试环境
+
+			var isVIN = params.vin ? true : false
+			var isParts = params.p ? true : false
+			var isCar = !isVIN && !isParts ? true : false
+			var keyTemp = false
+			var hasBlue = true
+			var fristOnePart = false
+			var vinChange = 1
+			//发送给模糊搜索参数
+			var brandCode = params.code//code
+			var cid = params.auth//auth
+			var carinfo=""//非车架号进来head 全部
+			var vins = ""//车架号进来的截除前17位 
+			var vin = "" //车架号进来的车架号
+			
+			
+			var styleListArr={
+				_css:['cargroup',"cargrouptop","cargroupmiddle","cargroupmodel","floatwindow","showimageview","cargroupbottom","cargrouppage","modalcar","modalpart"],
+				_less:["feedback"],
+				_script:["cargroup"]
+			}
+		</script>
+		<script id="version" src="/ppy/js/versionCode.js?v=322" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="/ppy/css/animate.css"/>
+		<link rel="stylesheet" type="text/less" href="/ppy/css/indexcontent.less"/>
+		<link rel="stylesheet" type="text/less" href="/ppy/css/contextmenu.less"/>
+		<link rel="shortcut icon" href="/ppy/img/logo.ico" />
+	</head>
+
+	<body>
+		<div id="root"></div>
+		<script src="/ppy/js/versionControl.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://cdn.bootcss.com/es5-shim/4.5.9/es5-shim.min.js"></script>
+		<script src="http://cdn.bootcss.com/es5-shim/4.5.9/es5-sham.min.js"></script>
+		<script src="/ppy/js/html2canvas.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/ppy/js/drawDom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/ppy/js/less.min.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+		$("body").on("click",".ClickFristItem>.MiddleRightContentListFooterItemContent",function(){
+			if($(this).children('div').hasClass('plus')){
+				$(this).parents(".listGroupToFloat").find(".MiddleRightContentListItemContainer").show();
+				$(this).children('div').removeClass("plus").addClass("minus")
+			}else if($(this).children('div').hasClass('minus')){
+				$(this).parents(".listGroupToFloat").find(".MiddleRightContentListItemContainer").hide();
+				$(this).parents(".MiddleRightContentListItemContainer").show();
+				$(this).children('div').removeClass("minus").addClass("plus")
+			}
+		})
+		$("body").on('click',".MiddleRightContentListItemContainer",function(){
+			$(".MiddleRightContentListItemContainer").css("color","#333333");
+			$(this).css("color","#1AA0F3");
+		})
+		</script>
+	</body>
+</html>
